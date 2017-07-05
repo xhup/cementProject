@@ -1,0 +1,94 @@
+/*登录界面顶部导航条*/
+.topWelcome{height:47px; position:absolute;left:0; top:0; background:url("../images/loginbg1.png") repeat-x;z-index:100; width:100%;}
+.topWelcome span{color:#fff; line-height:47px; background:url("../images/loginsj.png") no-repeat 21px 18px; text-indent:44px; color:#afc5d2; float:left;}
+
+/*登录界面图片*/
+ #loginImage{
+    position: absolute;
+    top: 10%;
+    left:10%;
+    margin: 0;
+    padding: 0;
+    width: 32%;
+    height: 80%;
+
+}
+ /*登录框*/
+ #loginBox{
+    position: absolute;
+    left: 45%;
+    top: 30%;
+    margin: 0;
+    padding: 30px;
+}
+/*主页顶部导航条*/
+.topOne{
+   /*border: dashed;*/
+   margin: 0;
+   width: 100%;
+   height: 40px;
+   background-color:lightslategrey;
+   line-height: 40px;
+   text-align: center;
+   font-size: 25px;
+   color:white;
+
+
+}
+.topOne .rightTag{
+   position: absolute;
+   margin: 0;
+   /*top: 5px;*/
+   right: 200px;
+}
+/*顶部导航条按钮*/
+#dropdownMenu{
+   position: absolute;
+   margin: 0;
+   top: 0;
+   right: 0;
+   height: 40px;
+   width: 160px;
+   border: 1;
+   border-radius: 15px;
+}
+/*修改密码表格*/
+#changePasswordForm{
+   /*border: dashed;*/
+   margin-top: 8%;
+   height:auto;
+
+}
+#changePasswordForm table{
+   width: 500px;
+   height: 300px;
+   border: 2px;
+   border-radius: 5px;
+   background-color: #a8c8d8;
+   border-radius: 25px;
+}
+
+#changePasswordForm td{
+   padding: 8px;
+}
+
+/*罐列表展示盒子*/
+#mainPort{
+  margin-top: 20px
+}
+/*罐列表行*/
+#mainTable td{
+    height: 30px;
+    padding-left: 30px;
+}
+/*罐列表奇偶行颜色*/
+.even{
+    background-color:#d9edf7;
+}
+.odd{
+    background-color:whitesmoke ;
+}
+/*罐列表选中行颜色*/
+.tableSelected{
+    background: #0088cc;
+}
