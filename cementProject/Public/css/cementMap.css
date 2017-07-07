@@ -1,0 +1,34 @@
+   body,
+    html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+    
+    #bigMapContain {
+        width: 50%;
+        height: inherit;
+        overflow: hidden;
+        margin: 0;
+        font-family: "微软雅黑";
+        float: left;
+    }
+    
+    #smallMapContain {
+        width: 50%;
+        height: inherit;
+        overflow: hidden;
+        margin: 0;
+        font-family: "微软雅黑";
+        float: left;
+        background-color: #A6C2DE;
+    }
+    
+    #bigMap,
+    #smallMap {
+        margin: 0 0 3px, 2px;
+        height: 100%;
+        width: 100%
+    }

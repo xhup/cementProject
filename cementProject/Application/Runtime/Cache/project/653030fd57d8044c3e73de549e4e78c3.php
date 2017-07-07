@@ -71,7 +71,7 @@
                     // 扩展的按钮，用于快捷查找,
                     text: '缺料',
                     action: function(e, dt, node, config) {
-                        table.search("Y").draw();
+                        table.search("是").draw();
                         // this.disable(); // disable button
                     }
                 },
@@ -80,7 +80,7 @@
                 {
                     text: '不缺',
                     action: function(e, dt, node, config) {
-                        table.search("N").draw();
+                        table.search("否").draw();
                         // this.disable(); // disable button
 
                     }
@@ -89,6 +89,13 @@
                     text: '所有',
                     action: function(e, dt, node, config) {
                         table.search("").draw();
+                        // this.disable(); // disable button
+
+                    }
+                },{
+                    text:'查看地图',
+                    action:function(e, dt, node, config) {
+                        window.open("http://192.168.1.121/cementProject/data/mainMap");
                         // this.disable(); // disable button
 
                     }

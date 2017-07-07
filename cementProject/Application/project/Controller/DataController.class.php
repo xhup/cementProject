@@ -76,15 +76,20 @@ class DataController extends Controller
                 $time=date("Y-m-d H:i:s");
                 file_put_contents($file,"收到的数据为：$buf".$time."\n\t",FILE_APPEND);
                 $flag=substr($buf,0,1);//拿到收到数据的第一位是否缺料标志
+                if($flag=="Y"){
+                    $isLack="是";
+                }else{
+                     $isLack="否";
+                }
                 $simCard=substr($buf,1,15);//拿到后15位sim卡卡号
             
                 $search=$table->where("simNumber='$simCard'")->find();
                 if($search){//如果sim卡号已经存在，则更新
-                    $conditon1['isLack']=$flag;
+                    $conditon1['isLack']=$isLack;
                     $conditon1['uploadTime']=$time;
                     $update=$table->where("simNumber='$simCard'")->setField($conditon1);
                 }elseif ($search==NULL) {//如果不存在，则存入
-                    $conditon2['isLack']=$flag;
+                    $conditon2['isLack']=$isLack;
                     $conditon2['uploadTime']=$time;  
                     $conditon2['simNumber']=$simCard;
                     $save=$table->add($conditon2);
