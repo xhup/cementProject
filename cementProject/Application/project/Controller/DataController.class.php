@@ -109,7 +109,14 @@ class DataController extends Controller
 
     public function allCansInfo(){
         $table=M('Data');
-        $info=$table->field("identifier,simNumber,location,isLack,status,uploadTime")->select();
+        $info=$table->field("identifier,simNumber,worksite,location,longitude,latitude,isLack,status,uploadTime")->select();
+        $array=array('data' => $info );
+        $this->ajaxReturn($array,"json");
+    }
+
+    public function dataForMap(){
+        $table=M('Data');
+        $info=$table->where("isLack='是'")->field("location,longitude,latitude")->select();
         $array=array('data' => $info );
         $this->ajaxReturn($array,"json");
     }

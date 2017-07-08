@@ -79,7 +79,7 @@
 /*罐列表行*/
 #mainTable td{
     height: 30px;
-    padding-left: 30px;
+    padding-left: 20px;
 }
 /*罐列表奇偶行颜色*/
 .even{

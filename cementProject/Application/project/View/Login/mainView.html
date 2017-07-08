@@ -38,7 +38,10 @@
                 <tr>
                     <th>序号</th>
                     <th>瓶罐号</th>
-                    <th>工地位置</th>
+                    <th>工地名称</th>
+                    <th>工地地址</th>
+                    <th>经度</th>
+                    <th>纬度</th>
                     <th>是否缺料</th>
                     <th>状态</th>
                     <th>更新时间</th>
@@ -54,14 +57,12 @@
     <script>
     $(document).ready(function() {
         $(".currentUser").load("{:U('login/sessionCheck')}"); //通过ajax在网页右上角显示当前登录用户名
+        setInterval(() => window.location.reload(), 5000 * 12 * 5); //页面每5分钟自动刷新一次
+
     })
 
 
-    $(function() {
-        $("#webHead").load("{:U('Login/webHead')}");
-    })
-
-    //    通过dataTables插件从服务器请求对应表格中儿童数据信息，这里要注意返回的数据要包装成"data"名字，并且数据列数与html中列数严格匹配，不然无法显示，这个问题卡了我好久
+    //    通过dataTables插件从服务器请求对应表格中数据信息，这里要注意返回的数据要包装成"data"名字，并且数据列数与html中列数严格匹配，不然无法显示，这个问题卡了我好久
     $(document).ready(function() {
         var dataSource = "{:U('Data/allCansInfo')}";
         var table = $('#mainTable').DataTable({
@@ -84,17 +85,16 @@
                         // this.disable(); // disable button
 
                     }
-                },
-                 {
+                }, {
                     text: '所有',
                     action: function(e, dt, node, config) {
                         table.search("").draw();
                         // this.disable(); // disable button
 
                     }
-                },{
-                    text:'查看地图',
-                    action:function(e, dt, node, config) {
+                }, {
+                    text: '查看地图',
+                    action: function(e, dt, node, config) {
                         window.open("http://192.168.1.121/cementProject/data/mainMap");
                         // this.disable(); // disable button
 
@@ -135,7 +135,13 @@
                 }, {
                     "data": "simnumber"
                 }, {
+                    "data": "worksite"
+                }, {
                     "data": "location"
+                }, {
+                    "data": "longitude"
+                }, {
+                    "data": "latitude"
                 }, {
                     "data": "islack"
                 }, {
