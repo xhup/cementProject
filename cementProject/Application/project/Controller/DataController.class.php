@@ -116,7 +116,7 @@ class DataController extends Controller
 
     public function dataForMap(){
         $table=M('Data');
-        $info=$table->where("isLack='是'")->field("location,longitude,latitude")->select();
+        $info=$table->where("isLack='是'")->field("location,worksite,simNumber,longitude,latitude")->select();
         $array=array('data' => $info );
         $this->ajaxReturn($array,"json");
     }
