@@ -30,8 +30,6 @@
             </li>
         </ul>
     </div>
-    <!--显示系统时间-->
-    <div id="clock"></div>
     <div id="mainPort">
         <table id="mainTable" class="display" align="center" border="0" width="90%" cellspacing="0" cellpadding="0">
             <thead>
@@ -50,6 +48,7 @@
             </thead>
         </table>
     </div>
+    <!-- <audio id="soundPlayer" src="/cementProject/Public/images/sound.mp3">您的浏览器不支持 audio 标签。</audio> -->
     <script src="/cementProject/Public/js/jquery-2.1.1.min.js"></script>
     <script src="/cementProject/Public/js/bootstrap.min.js"></script>
     <script src="/cementProject/Public/thirdPlug/DataTables/js/jquery.dataTables.min.js"></script>
@@ -57,6 +56,10 @@
     <script>
     $(document).ready(function() {
         $(".currentUser").load("<?php echo U('login/sessionCheck');?>"); //通过ajax在网页右上角显示当前登录用户名
+        if($(".currentUser").val()=="未登陆"){
+            alert("请先登陆！登陆后才能查看数据");
+            window.location.href="http://localhost/cementProject/index.php/login/loginView";
+        }
         setInterval(() => window.location.reload(), 5000 * 12 * 5); //页面每5分钟自动刷新一次
 
     })
@@ -65,14 +68,14 @@
     //    通过dataTables插件从服务器请求对应表格中数据信息，这里要注意返回的数据要包装成"data"名字，并且数据列数与html中列数严格匹配，不然无法显示，这个问题卡了我好久
     $(document).ready(function() {
         var dataSource = "<?php echo U('Data/allCansInfo');?>";
-        var table = $('#mainTable').DataTable({
-            "ajax": dataSource,
+        $.when($('#mainTable').DataTable({
+            ajax: dataSource,
             dom: 'lBfrtip',
             buttons: [{
                     // 扩展的按钮，用于快捷查找,
                     text: '缺料',
                     action: function(e, dt, node, config) {
-                        table.search("是").draw();
+                        this.search("是").draw();
                         // this.disable(); // disable button
                     }
                 },
@@ -81,21 +84,21 @@
                 {
                     text: '不缺',
                     action: function(e, dt, node, config) {
-                        table.search("否").draw();
+                        this.search("否").draw();
                         // this.disable(); // disable button
 
                     }
                 }, {
                     text: '所有',
                     action: function(e, dt, node, config) {
-                        table.search("").draw();
+                        this.search("").draw();
                         // this.disable(); // disable button
 
                     }
                 }, {
                     text: '查看地图',
                     action: function(e, dt, node, config) {
-                        window.open("http://192.168.1.121/cementProject/data/mainMap");
+                        window.open("http://192.168.1.121/cementProject/data/mainMap?ak=pass");
                         // this.disable(); // disable button
 
                     }
@@ -151,9 +154,24 @@
                 },
                 null //最后一类数据不需要从服务器获取，是自定义跳转按键
             ]
-        });
 
+        })).then($.get("<?php echo U('Data/lackInfo');?>", function(e) { //当dataTable加载完成后，如果存在缺料则弹出警告并报警
+            var data = e.data;
+            var result = data.some(value => value.islack == "是");
+            if (result) {
+                var audio = new Audio("/cementProject/Public/images/sound.mp3"); //报警音乐
+                audio.play();
+                audio.loop = true;
+                setTimeout(function() {
+                    alert('存在缺料砂浆罐!');
+                    audio.pause();
+                    audio = null;
+                }, 500);
+
+            }
+        }));
     });
+
     //表格选中列高亮
     $(function() {
             $("#mainTable tbody").on("click", "tr", function() {

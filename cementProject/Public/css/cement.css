@@ -92,3 +92,8 @@
 .tableSelected{
     background: #0088cc;
 }
+#soundPlayer{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

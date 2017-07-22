@@ -20,6 +20,16 @@
 <script type="text/javascript" src="/cementProject/Public/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="/cementProject/Public/js/mapRelevant.js"></script>
 <script type="text/javascript">
+
+//登陆限制，只有登陆了才能查看地图
+var search = window.location.search;
+var ak = search.slice(search.indexOf("=") + 1);
+if (!(ak == 'pass')) {
+    alert("请先登陆！登陆后才能查看地图模式");
+    window.location.href = "http://192.168.1.121/cementProject/index.php/Login/loginView.html";
+
+}
+
 // 百度地图API功能
 var bigMap = new BMap.Map("bigMap"); // 创建地图实例  
 bigMap.centerAndZoom("东阳市", 8); // 初始化地图，设置中心点坐标和地图级别(浙江地图以东阳市为中心显示比较合适)  
@@ -33,7 +43,6 @@ var selectCity = []; //存储缺料城市的数组变量
 
 $.get('<?php echo U("Data/dataForMap");?>', function(e) {
     var data = e.data;
-
     var coordinate = data.map(value => value.location + "/" + value.worksite + "-" + value.longitude + "-" + value.latitude); //拿到所有缺料的工地地址和经纬度坐标
     var uniqueCoordinate = Array.from(new Set(coordinate)); //工地地址和经纬度去重
     var lackLocation = data.map(value => value.location); //拿到所有缺料的工地地址

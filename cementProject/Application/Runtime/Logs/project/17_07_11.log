@@ -1,0 +1,20 @@
+[ 2017-07-11T21:38:16+08:00 ] ::1 /cementProject/index.php/data/socketReceive
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000391s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000477s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000509s ]
+SQL: SHOW COLUMNS FROM `ce_data` [ RunTime:0.0082s ]
+NOTIC: [2] socket_bind():  E:\xampp\htdocs\cementProject\Application\project\Controller\DataController.class.php 第 60 行.
+
+[ 2017-07-11T21:38:21+08:00 ] ::1 /cementProject/index.php/data/socketReceive
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000398s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000512s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000558s ]
+SQL: SHOW COLUMNS FROM `ce_data` [ RunTime:0.0034s ]
+NOTIC: [2] socket_bind():  E:\xampp\htdocs\cementProject\Application\project\Controller\DataController.class.php 第 60 行.
+

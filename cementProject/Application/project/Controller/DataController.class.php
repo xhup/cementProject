@@ -107,13 +107,23 @@ class DataController extends Controller
 
     }
 
+//返回给dataTable的所有监测工地混泥砂浆罐信息
     public function allCansInfo(){
         $table=M('Data');
         $info=$table->field("identifier,simNumber,worksite,location,longitude,latitude,isLack,status,uploadTime")->select();
         $array=array('data' => $info );
         $this->ajaxReturn($array,"json");
     }
+    
+ //返回给audio的关于混泥砂浆罐是否缺料的信息
+   public function lackInfo(){
+        $table=M('Data');
+        $info=$table->field("isLack")->select();
+        $array=array('data' => $info );
+        $this->ajaxReturn($array,"json");
+    }
 
+//返回给baidu地图的所有监测工地混泥砂浆罐信息
     public function dataForMap(){
         $table=M('Data');
         $info=$table->where("isLack='是'")->field("location,worksite,simNumber,longitude,latitude")->select();
