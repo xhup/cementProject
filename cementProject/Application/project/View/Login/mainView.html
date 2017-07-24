@@ -43,23 +43,28 @@
                     <th>是否缺料</th>
                     <th>状态</th>
                     <th>更新时间</th>
-                    <th>操作</th>
+                    <!-- <th>操作</th> -->
                 </tr>
             </thead>
         </table>
     </div>
-    <!-- <audio id="soundPlayer" src="__PUBLIC__/images/sound.mp3">您的浏览器不支持 audio 标签。</audio> -->
+   
     <script src="__PUBLIC__/js/jquery-2.1.1.min.js"></script>
     <script src="__PUBLIC__/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/thirdPlug/DataTables/js/jquery.dataTables.min.js"></script>
     <script src="__PUBLIC__/thirdPlug/DataTables/js/dataTables.buttons.min.js"></script>
     <script>
     $(document).ready(function() {
-        $(".currentUser").load("{:U('login/sessionCheck')}"); //通过ajax在网页右上角显示当前登录用户名
-        if($(".currentUser").val()=="未登陆"){
-            alert("请先登陆！登陆后才能查看数据");
-            window.location.href="http://localhost/cementProject/index.php/login/loginView";
-        }
+        // $(".currentUser").load("{:U('login/sessionCheck')}"); //通过ajax在网页右上角显示当前登录用户名
+        $.get("{:U('login/sessionCheck')}", function(e) {
+            var data = e.data;
+            $(".currentUser").html(data);
+            if (data == "未登陆") {
+                alert("请先登陆！登陆后才能查看数据");
+                window.location.href = "http://121.40.89.113/cementProject/index.php/login/loginView";
+            }
+        })
+
         setInterval(() => window.location.reload(), 5000 * 12 * 5); //页面每5分钟自动刷新一次
 
     })
@@ -152,7 +157,7 @@
                 }, {
                     "data": "uploadtime"
                 },
-                null //最后一类数据不需要从服务器获取，是自定义跳转按键
+                // null //最后一类数据不需要从服务器获取，是自定义跳转按键
             ]
 
         })).then($.get("{:U('Data/lackInfo')}", function(e) { //当dataTable加载完成后，如果存在缺料则弹出警告并报警
@@ -166,7 +171,7 @@
                     alert('存在缺料砂浆罐!');
                     audio.pause();
                     audio = null;
-                }, 500);
+                }, 2000);
 
             }
         }));
@@ -177,33 +182,17 @@
             $("#mainTable tbody").on("click", "tr", function() {
                 $(this).toggleClass("selected");
             })
+
+              $("html").on("mouseover", function() {
+                $("#mainTable tbody tr td:contains('是')").addClass("lackTD");//给缺料单元格加红色背景样式
+            })
+
         })
         //表格奇偶行不同色
     $(function() {
-            $("#mainTable tbody tr:even").addClass("even")
-            $("#mainTable tbody tr:odd").addClass("odd")
-        })
-        // //拿到对应点击儿童的就诊号
-        //    $(function(){
-        //       $("#mainTable tbody").on("click","button",function(){
-        //           var name =  $(this).parents("tr").children("td:eq(0)").text();//获取对应儿童的姓名
-        //           var value =  $(this).parents("tr").children("td:eq(1)").text();//获取对应儿童的就诊号
-        //           var childSex =  $(this).parents("tr").children("td:eq(2)").text();//获取对应儿童的性别，后续根据性别选择图表要用
-        //           if(childSex=="男"){
-        //               var sex="1";
-        //           } else {
-        //               var sex="2";
-        //           }
-        //           //将点击的儿童就诊号存到后台并跳转到相应页面
-        //           var target="saveMedicalID";
-        //           $.post(target,{"medicalID":value},function(data){
-        //               if(data){
-        //                   location.href='detailInformationView.html?medicalID='+value+'&name='+name+'&sex='+sex+'&timer='+new Date().getTime();
-        //               }
-
-    //           });
-    //       })
-    //    })
+        $("#mainTable tbody tr:even").addClass("even");
+        $("#mainTable tbody tr:odd").addClass("odd");
+    })
     </script>
 </body>
 

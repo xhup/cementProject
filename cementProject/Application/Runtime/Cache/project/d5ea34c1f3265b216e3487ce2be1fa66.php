@@ -11,10 +11,10 @@
     <span>欢迎登录混泥砂浆后台管理页面</span>
 </div>
 
-    <div class="col-md-3" id="loginImage">
+    <div id="loginImage">
         <img src="/cementProject/Public/images/shajiang.jpg" width="100%" height="100%">
     </div>
-    <div class="well col-md-4" id="loginBox">
+    <div id="loginBox">
         <form id="loginForm" method="post">
         <h3 align="center">用户登录</h3><br>
         <div class="input-group input-group-md">

@@ -34,11 +34,11 @@ class LoginController extends Controller
     public function sessionCheck(){
         session_start();
         if( $_SESSION['isLogin']==1){
-            echo $_SESSION['userName'];
+            $back=array("data"=>$_SESSION['userName']);
         }else{
-            echo "未登陆";
+             $back=array("data"=>"未登陆");
         }
-
+          $this->ajaxReturn($back);
     }
 
     /*用户退出登录*/
