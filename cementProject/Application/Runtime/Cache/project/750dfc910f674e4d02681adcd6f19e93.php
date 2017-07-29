@@ -43,6 +43,8 @@ var selectCity = []; //存储缺料城市的数组变量
 
 $.get('<?php echo U("Data/dataForMap");?>', function(e) {
     var data = e.data;
+    var lackCan=data.map(value=>value.longitude + "-" + value.latitude + "-" + value.simnumber);//拿到缺料具体罐号及对应经纬度
+    
     var coordinate = data.map(value => value.location + "/" + value.worksite + "-" + value.longitude + "-" + value.latitude); //拿到所有缺料的工地地址和经纬度坐标
     var uniqueCoordinate = Array.from(new Set(coordinate)); //工地地址和经纬度去重
     var lackLocation = data.map(value => value.location); //拿到所有缺料的工地地址
@@ -153,8 +155,8 @@ $.get('<?php echo U("Data/dataForMap");?>', function(e) {
     //所有缺料城市的进一步事件监听
     selectCity.forEach(value => {
         //跳到小地图并传入工地地址和经纬度坐标
-        value.addEventListener('click', function(e, spot) {
-            jumpToSmallMap(e, uniqueCoordinate)
+        value.addEventListener('click', function(e, spot1,spot2) {
+            jumpToSmallMap(e, uniqueCoordinate,lackCan)
         });
         //地图Mark点动画并显示文字标签
         value.addEventListener('mouseover', markJumpAndShowText);

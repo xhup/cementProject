@@ -41,7 +41,7 @@
                     <th>经度</th>
                     <th>纬度</th>
                     <th>是否缺料</th>
-                    <th>状态</th>
+                    <th>缺料时间</th>
                     <th>更新时间</th>
                     <!-- <th>操作</th> -->
                 </tr>
@@ -101,7 +101,7 @@
 
                     }
                 }, {
-                    text: '查看地图',
+                    text: '地图模式',
                     action: function(e, dt, node, config) {
                         window.open("http://192.168.1.121/cementProject/data/mainMap?ak=pass");
                         // this.disable(); // disable button
@@ -153,7 +153,7 @@
                 }, {
                     "data": "islack"
                 }, {
-                    "data": "status"
+                    "data": "lacktime"
                 }, {
                     "data": "uploadtime"
                 },

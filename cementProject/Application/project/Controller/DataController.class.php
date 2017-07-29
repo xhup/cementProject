@@ -76,21 +76,40 @@ class DataController extends Controller
                 $time=date("Y-m-d H:i:s");
                 file_put_contents($file,"收到的数据为：$buf".$time."\n\t",FILE_APPEND);
                 $flag=substr($buf,0,1);//拿到收到数据的第一位是否缺料标志
-                if($flag=="Y"){
-                    $isLack="是";
-                }else{
-                     $isLack="否";
-                }
+                // if($flag=="Y"){
+                //     $isLack="是";
+                //     $lackTime=$time;//缺料的时间
+                // }else{
+                //      $isLack="否";
+                //      $lackTime=" ";
+                // }
                 $simCard=substr($buf,1,15);//拿到后15位sim卡卡号
             
                 $search=$table->where("simNumber='$simCard'")->find();
+                $queryTime=$search["lacktime"]; //拿到缺料时间的字段值
                 if($search){//如果sim卡号已经存在，则更新
+                    if($flag=="Y"){
+                        $isLack="是";
+                       if(!$queryTime){
+                          $conditon1['lackTime']=$time;//只记录第一次检测到缺料的时间
+                         } 
+                    }else{
+                        $isLack="否";
+                        $conditon1['lackTime']=" ";//缺料时间置空
+                        }
                     $conditon1['isLack']=$isLack;
                     $conditon1['uploadTime']=$time;
                     $update=$table->where("simNumber='$simCard'")->setField($conditon1);
                 }elseif ($search==NULL) {//如果不存在，则存入
+                        if($flag=="Y"){
+                           $isLack="是";
+                           $conditon2['lackTime']=$time;  
+                        }else{
+                           $isLack="否";
+                           $conditon2['lackTime']=" ";  
+                        }
                     $conditon2['isLack']=$isLack;
-                    $conditon2['uploadTime']=$time;  
+                    $conditon2['uploadTime']=$time;   
                     $conditon2['simNumber']=$simCard;
                     $save=$table->add($conditon2);
                     }
@@ -110,7 +129,7 @@ class DataController extends Controller
 //返回给dataTable的所有监测工地混泥砂浆罐信息
     public function allCansInfo(){
         $table=M('Data');
-        $info=$table->field("identifier,simNumber,worksite,location,longitude,latitude,isLack,status,uploadTime")->select();
+        $info=$table->field("identifier,simNumber,worksite,location,longitude,latitude,isLack,lackTime,uploadTime")->select();
         $array=array('data' => $info );
         $this->ajaxReturn($array,"json");
     }
