@@ -65,7 +65,7 @@
             }
         })
 
-        setInterval(() => window.location.reload(), 5000 * 12 * 5); //页面每5分钟自动刷新一次
+        setInterval(() => window.location.reload(), 5000 * 12 * 3); //页面每3分钟自动刷新一次
 
     })
 
@@ -103,7 +103,7 @@
                 }, {
                     text: '地图模式',
                     action: function(e, dt, node, config) {
-                        window.open("http://192.168.1.121/cementProject/data/mainMap?ak=pass");
+                        window.open("http://192.168.0.105/cementProject/data/mainMap?ak=pass");
                         // this.disable(); // disable button
 
                     }
@@ -139,9 +139,9 @@
                 "defaultContent": "<button>查看</button>"
             }],
             "columns": [{
-                    "data": "identifier"
-                }, {
-                    "data": "simnumber"
+                    "data": "number"
+                },{
+                    "data": "id"
                 }, {
                     "data": "worksite"
                 }, {

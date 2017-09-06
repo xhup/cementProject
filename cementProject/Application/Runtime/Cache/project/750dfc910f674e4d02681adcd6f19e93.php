@@ -43,7 +43,7 @@ var selectCity = []; //存储缺料城市的数组变量
 
 $.get('<?php echo U("Data/dataForMap");?>', function(e) {
     var data = e.data;
-    var lackCan=data.map(value=>value.longitude + "-" + value.latitude + "-" + value.simnumber);//拿到缺料具体罐号及对应经纬度
+    var lackCan=data.map(value=>value.longitude + "-" + value.latitude + "-" + value.id);//拿到缺料具体罐号及对应经纬度
     
     var coordinate = data.map(value => value.location + "/" + value.worksite + "-" + value.longitude + "-" + value.latitude); //拿到所有缺料的工地地址和经纬度坐标
     var uniqueCoordinate = Array.from(new Set(coordinate)); //工地地址和经纬度去重
@@ -166,5 +166,5 @@ $.get('<?php echo U("Data/dataForMap");?>', function(e) {
     });
 })
 
-setInterval(() => window.location.reload(), 5000 * 12 * 5); //页面每5分钟自动刷新一次
+setInterval(() => window.location.reload(), 5000 * 12 * 3); //页面每3分钟自动刷新一次
 </script>

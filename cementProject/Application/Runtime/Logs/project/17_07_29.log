@@ -7045,3 +7045,203 @@ INFO: [ app_begin ] --END-- [ RunTime:0.000652s ]
 SQL: SHOW COLUMNS FROM `ce_data` [ RunTime:0.0043s ]
 SQL: SELECT `isLack` FROM `ce_data`  [ RunTime:0.0004s ]
 
+[ 2017-07-29T16:02:52+08:00 ] 192.168.1.121 /cementProject/data/mainMap?ak=pass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000554s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000739s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000799s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000077s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000139s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007923s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000653s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000712s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000755s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000802s ]
+
+[ 2017-07-29T16:02:53+08:00 ] 192.168.1.121 /cementProject/index.php/Data/dataForMap.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000318s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000481s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000525s ]
+SQL: SHOW COLUMNS FROM `ce_data` [ RunTime:0.0112s ]
+SQL: SELECT `location`,`worksite`,`simNumber`,`longitude`,`latitude` FROM `ce_data` WHERE ( isLack='是' )  [ RunTime:0.0012s ]
+
+[ 2017-07-29T16:03:04+08:00 ] ::1 /cementProject/index.php/Login/mainView
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000531s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000651s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000083s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008153s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008211s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000460s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000504s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000846s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000916s ]
+
+[ 2017-07-29T16:03:04+08:00 ] ::1 /cementProject/index.php/login/sessionCheck.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000549s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000594s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\cementProject\Application\project\Controller\LoginController.class.php 第 35 行.
+
+[ 2017-07-29T16:03:05+08:00 ] ::1 /cementProject/index.php/Data/allCansInfo.html?_=1501315384868
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000448s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000557s ]
+SQL: SHOW COLUMNS FROM `ce_data` [ RunTime:0.0046s ]
+SQL: SELECT `identifier`,`simNumber`,`worksite`,`location`,`longitude`,`latitude`,`isLack`,`lackTime`,`uploadTime` FROM `ce_data`  [ RunTime:0.0006s ]
+
+[ 2017-07-29T16:03:06+08:00 ] ::1 /cementProject/index.php/Data/lackInfo.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000512s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000578s ]
+SQL: SHOW COLUMNS FROM `ce_data` [ RunTime:0.0108s ]
+SQL: SELECT `isLack` FROM `ce_data`  [ RunTime:0.0009s ]
+
+[ 2017-07-29T19:21:13+08:00 ] ::1 /cementProject/index.php/login/loginView
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000430s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000412s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000445s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000077s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004152s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004187s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000329s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000358s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000407s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000434s ]
+
+[ 2017-07-29T19:21:20+08:00 ] ::1 /cementProject/index.php/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000417s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000533s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000584s ]
+SQL: SHOW COLUMNS FROM `ce_admin` [ RunTime:0.0124s ]
+SQL: SELECT * FROM `ce_admin` WHERE `account` = 'aa' AND `password` = '111111'  [ RunTime:0.0011s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013694s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013815s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000911s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000988s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001425s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001532s ]
+
+[ 2017-07-29T19:21:21+08:00 ] ::1 /cementProject/index.php/Login/mainView
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000488s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000466s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000096s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004473s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004515s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000333s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000369s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000550s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000609s ]
+
+[ 2017-07-29T19:21:21+08:00 ] ::1 /cementProject/index.php/login/sessionCheck.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+NOTIC: [8] A session had already been started - ignoring session_start() E:\xampp\htdocs\cementProject\Application\project\Controller\LoginController.class.php 第 35 行.
+
+[ 2017-07-29T19:21:23+08:00 ] ::1 /cementProject/index.php/Data/allCansInfo.html?_=1501327281900
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000518s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000579s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000650s ]
+SQL: SHOW COLUMNS FROM `ce_data` [ RunTime:0.0120s ]
+SQL: SELECT `identifier`,`simNumber`,`worksite`,`location`,`longitude`,`latitude`,`isLack`,`lackTime`,`uploadTime` FROM `ce_data`  [ RunTime:0.0018s ]
+
+[ 2017-07-29T19:21:24+08:00 ] ::1 /cementProject/index.php/Data/lackInfo.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000492s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000602s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000657s ]
+SQL: SHOW COLUMNS FROM `ce_data` [ RunTime:0.0118s ]
+SQL: SELECT `isLack` FROM `ce_data`  [ RunTime:0.0009s ]
+
+[ 2017-07-29T19:21:27+08:00 ] 192.168.1.121 /cementProject/data/mainMap?ak=pass
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001559s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000710s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000796s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000115s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005242s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005294s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000437s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000664s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000715s ]
+
+[ 2017-07-29T19:21:29+08:00 ] 192.168.1.121 /cementProject/index.php/Data/dataForMap.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000591s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000562s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000623s ]
+SQL: SHOW COLUMNS FROM `ce_data` [ RunTime:0.0094s ]
+SQL: SELECT `location`,`worksite`,`simNumber`,`longitude`,`latitude` FROM `ce_data` WHERE ( isLack='是' )  [ RunTime:0.0011s ]
+
